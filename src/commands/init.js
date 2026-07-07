@@ -16,10 +16,19 @@ export async function initCommand() {
   }
 
   console.log(chalk.bold("\nSet up your work email SMTP server:"));
-  const user = await input({ message: "Username:", required: true });
+  const user = await input({
+    message: "Username (e.g. you@yourcompany.com):",
+    required: true,
+  });
   const pass = await password({ message: "Password:", mask: "*" });
-  const host = await input({ message: "SMTP Server:", required: true });
-  const portRaw = await input({ message: "port:", default: "587" });
+  const host = await input({
+    message: "SMTP Server (e.g. smtp.gmail.com or smtp.office365.com):",
+    required: true,
+  });
+  const portRaw = await input({
+    message: "port (e.g. 587 for TLS, 465 for SSL):",
+    default: "587",
+  });
 
   const port = Number(portRaw);
   const smtp = {
@@ -49,7 +58,10 @@ export async function initCommand() {
   }
 
   console.log(chalk.bold("\nSet up your first Nifty project:"));
-  const projectName = await input({ message: "Project name:", required: true });
+  const projectName = await input({
+    message: "Project name (e.g. Website Revamp):",
+    required: true,
+  });
   const projectEmail = await input({
     message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
     required: true,

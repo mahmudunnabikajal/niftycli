@@ -3,7 +3,10 @@ import { input, select, confirm } from "@inquirer/prompts";
 import { loadConfig, saveConfig } from "../config.js";
 
 export async function promptNewProject(config) {
-  const name = await input({ message: "New project name:", required: true });
+  const name = await input({
+    message: "New project name (e.g. Website Revamp):",
+    required: true,
+  });
   const email = await input({
     message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
     required: true,
