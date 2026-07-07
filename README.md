@@ -32,12 +32,12 @@ niftycli project remove    # remove a project
 1. Open your Nifty project, click the **`...`** menu next to the project name in
    the sidebar, and select **Project Control Center**.
 
-   ![Opening the Project Control Center](docs/images/nifty_project_control_center.png)
+   ![Opening the Project Control Center](https://downloads.intercomcdn.com/i/o/830642303/1b277eeae6f1ba4794ef428f/Screen+Shot+2023-09-14+at+10.15.41+AM.png)
 
 2. In the **Automations** section, click **Email Forwarding** and copy the
    address shown — this is the email you'll give `niftycli` for this project.
 
-   ![Copying the project's forwarding email](docs/images/nifty_project_email.png)
+   ![Copying the project's forwarding email](https://downloads.intercomcdn.com/i/o/827623574/0f986f450854c74966f3db92/Screen+Shot+2023-09-11+at+9.16.19+AM.png)
 
 ## Troubleshooting
 
