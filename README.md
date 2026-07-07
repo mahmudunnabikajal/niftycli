@@ -137,6 +137,7 @@ Other project management commands:
 
 ```bash
 niftycli project list     # see all saved projects (the default one is marked with *)
+niftycli project edit     # rename a project or update its forwarding email
 niftycli project remove   # remove a project you no longer need
 ```
 
@@ -153,6 +154,7 @@ show the full list to pick from.
 | `niftycli new`            | Create a new task                                             |
 | `niftycli project add`    | Add another project                                           |
 | `niftycli project list`   | List all saved projects                                       |
+| `niftycli project edit`   | Rename a project or update its forwarding email                |
 | `niftycli project remove` | Remove a saved project                                        |
 
 ## Troubleshooting

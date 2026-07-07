@@ -49,6 +49,39 @@ export async function listProjectsCommand() {
   }
 }
 
+export async function editProjectCommand() {
+  const config = requireConfig();
+  if (!config) return;
+
+  if (config.projects.length === 0) {
+    console.log(chalk.yellow("No projects to edit. Run `niftycli project add` to create one."));
+    return;
+  }
+
+  const originalName = await select({
+    message: "Edit which project?",
+    choices: config.projects.map((p) => ({ name: p.name, value: p.name })),
+  });
+
+  const project = config.projects.find((p) => p.name === originalName);
+
+  const name = await input({ message: "Project name:", required: true, default: project.name });
+  const email = await input({
+    message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
+    required: true,
+    default: project.email,
+  });
+
+  project.name = name;
+  project.email = email;
+  if (config.defaultProject === originalName) {
+    config.defaultProject = name;
+  }
+
+  saveConfig(config);
+  console.log(chalk.green(`\n✔ Updated project "${name}"`));
+}
+
 export async function removeProjectCommand() {
   const config = requireConfig();
   if (!config) return;

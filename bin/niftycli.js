@@ -6,6 +6,7 @@ import { newCommand } from "../src/commands/new.js";
 import {
   addProjectCommand,
   listProjectsCommand,
+  editProjectCommand,
   removeProjectCommand,
 } from "../src/commands/project.js";
 
@@ -40,6 +41,11 @@ project
   .command("list")
   .description("List saved Nifty projects")
   .action(listProjectsCommand);
+
+project
+  .command("edit")
+  .description("Edit a saved Nifty project's name or forwarding email")
+  .action(editProjectCommand);
 
 project
   .command("remove")
