@@ -16,22 +16,20 @@ export async function initCommand() {
   }
 
   console.log(chalk.bold("\nSet up your work email SMTP server:"));
-  const host = await input({ message: "SMTP host:", required: true });
-  const portRaw = await input({ message: "SMTP port:", default: "587" });
-  const secure = await confirm({ message: "Use TLS (secure) connection?", default: false });
-  const user = await input({ message: "SMTP username:", required: true });
-  const pass = await password({ message: "SMTP password:", mask: "*" });
-  const fromName = await input({ message: "Your name (From):" });
-  const fromEmail = await input({ message: "Your work email (From):", required: true, default: user });
+  const user = await input({ message: "Username:", required: true });
+  const pass = await password({ message: "Password:", mask: "*" });
+  const host = await input({ message: "SMTP Server:", required: true });
+  const portRaw = await input({ message: "port:", default: "587" });
 
+  const port = Number(portRaw);
   const smtp = {
     host,
-    port: Number(portRaw),
-    secure,
+    port,
+    secure: port === 465,
     user,
     pass,
-    fromName,
-    fromEmail,
+    fromName: "",
+    fromEmail: user,
   };
 
   console.log(chalk.gray("\nVerifying SMTP connection..."));

@@ -60,17 +60,17 @@ niftycli init
 
 You'll be asked a series of questions:
 
-| Question                         | What to enter                                                                             |
-| -------------------------------- | ----------------------------------------------------------------------------------------- |
-| SMTP host                        | Your email provider's outgoing mail server, e.g. `smtp.office365.com` or `smtp.gmail.com` |
-| SMTP port                        | Usually `587`. Leave the default if you're not sure                                       |
-| Use TLS (secure) connection?     | Usually "No" for port `587`, "Yes" for port `465`                                         |
-| SMTP username                    | Your work email address                                                                   |
-| SMTP password                    | Your email password (or an "app password" — see below)                                    |
-| Your name (From)                 | The name you want shown as the sender                                                     |
-| Your work email (From)           | Your work email address                                                                   |
-| Project name                     | A short name you'll recognize later, e.g. `Website Revamp`                                |
-| Project's Nifty forwarding email | The special email address for that Nifty project (see below)                              |
+| Question                          | What to enter                                                                        |
+| ---------------------------------- | -------------------------------------------------------------------------------------- |
+| Username                          | Your work email address                                                              |
+| Password                          | Your email password (or an "app password" — see below)                              |
+| SMTP Server                       | Your email provider's outgoing mail server, e.g. `smtp.office365.com` or `smtp.gmail.com` |
+| port                              | Usually `587`. Leave the default if you're not sure                                  |
+| Project name                      | A short name you'll recognize later, e.g. `Website Revamp`                           |
+| Project's Nifty forwarding email  | The special email address for that Nifty project (see below)                         |
+
+TLS is enabled automatically for port `465` and disabled for everything else (like
+`587`), so you won't be asked about it separately.
 
 The CLI will try to connect to your email server to make sure the details are
 correct before saving anything.
