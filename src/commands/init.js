@@ -22,7 +22,7 @@ export async function initCommand() {
   });
   const pass = await password({ message: "Password:", mask: "*" });
   const host = await input({
-    message: "SMTP Server (e.g. smtp.gmail.com or smtp.office365.com):",
+    message: "SMTP Server (e.g. smtp.gmail.com or mail.yourcompany.com):",
     required: true,
   });
   const portRaw = await input({
