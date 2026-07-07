@@ -39,8 +39,9 @@ export async function newCommand() {
 
   const taskName = await input({ message: "Task name:", required: true });
   const description = await input({ message: "Task description (optional):" });
+  const status = await input({ message: "Status (optional):", default: "To Do" });
 
-  const { subject, text } = buildTaskEmail({ taskName, description });
+  const { subject, text } = buildTaskEmail({ taskName, description, status });
 
   try {
     await sendTaskEmail(config.smtp, project.email, { subject, text });

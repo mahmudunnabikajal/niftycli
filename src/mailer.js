@@ -12,9 +12,9 @@ export function createTransport(smtp) {
   });
 }
 
-export function buildTaskEmail({ taskName, description }) {
+export function buildTaskEmail({ taskName, description, status = "To Do" }) {
   return {
-    subject: `${taskName} [To Do]`,
+    subject: `${taskName} [${status}]`,
     text: description || "",
   };
 }
