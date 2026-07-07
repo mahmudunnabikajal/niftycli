@@ -8,7 +8,8 @@ export async function promptNewProject(config) {
     required: true,
   });
   const email = await input({
-    message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
+    message:
+      "Project's Nifty forwarding email (Project Settings → Email Forwarding):",
     required: true,
   });
   const project = { name, email };
@@ -21,7 +22,9 @@ export async function promptNewProject(config) {
 function requireConfig() {
   const config = loadConfig();
   if (!config) {
-    console.log(chalk.red("No configuration found. Run `niftycli init` first."));
+    console.log(
+      chalk.red("No configuration found. Run `niftycli init` first."),
+    );
     process.exitCode = 1;
     return null;
   }
@@ -41,14 +44,20 @@ export async function listProjectsCommand() {
   if (!config) return;
 
   if (config.projects.length === 0) {
-    console.log(chalk.yellow("No projects yet. Run `niftycli project add` to create one."));
+    console.log(
+      chalk.yellow(
+        "No projects yet. Run `niftycli project add` to create one.",
+      ),
+    );
     return;
   }
 
   console.log(chalk.bold("\nProjects:"));
   for (const p of config.projects) {
     const isDefault = p.name === config.defaultProject;
-    console.log(`  ${isDefault ? chalk.cyan("*") : " "} ${p.name} ${chalk.gray(`<${p.email}>`)}`);
+    console.log(
+      `  ${isDefault ? chalk.cyan("*") : " "} ${p.name} ${chalk.gray(`<${p.email}>`)}`,
+    );
   }
 }
 
@@ -57,7 +66,11 @@ export async function editProjectCommand() {
   if (!config) return;
 
   if (config.projects.length === 0) {
-    console.log(chalk.yellow("No projects to edit. Run `niftycli project add` to create one."));
+    console.log(
+      chalk.yellow(
+        "No projects to edit. Run `niftycli project add` to create one.",
+      ),
+    );
     return;
   }
 
@@ -68,9 +81,14 @@ export async function editProjectCommand() {
 
   const project = config.projects.find((p) => p.name === originalName);
 
-  const name = await input({ message: "Project name:", required: true, default: project.name });
+  const name = await input({
+    message: "Project name:",
+    required: true,
+    default: project.name,
+  });
   const email = await input({
-    message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
+    message:
+      "Project's Nifty forwarding email (Project Settings → Email Forwarding):",
     required: true,
     default: project.email,
   });
@@ -99,7 +117,10 @@ export async function removeProjectCommand() {
     choices: config.projects.map((p) => ({ name: p.name, value: p.name })),
   });
 
-  const proceed = await confirm({ message: `Remove "${name}"?`, default: false });
+  const proceed = await confirm({
+    message: `Remove "${name}"?`,
+    default: false,
+  });
   if (!proceed) {
     console.log(chalk.yellow("Aborted."));
     return;

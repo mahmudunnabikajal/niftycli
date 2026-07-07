@@ -64,7 +64,7 @@ export async function initCommand() {
   });
   const projectEmail = await input({
     message:
-      "Project's Nifty forwarding email (Project Settings → Email to Task):",
+      "Project's Nifty forwarding email (Project Settings → Email Forwarding):",
     required: true,
   });
 
