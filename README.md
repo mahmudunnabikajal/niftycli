@@ -8,14 +8,15 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal — no br
 npm i -g niftycli
 ```
 
-## Create a task
+## Commands
 
-```bash
-niftycli
-```
-
-Once set up, this asks for a project, task name, and optional description, then
-emails Nifty to create the task.
+| Command                | Does                               |
+| ---------------------- | ---------------------------------- |
+| `niftycli`             | Setup (first run) or create a task |
+| `niftycli init`        | (Re-)run setup                     |
+| `niftycli new`         | Create a task                      |
+| `niftycli project ...` | Manage projects (see below)        |
+| `niftycli --help`      | List all commands                  |
 
 ## Manage projects
 
@@ -25,18 +26,6 @@ niftycli project list      # list saved projects
 niftycli project edit      # rename / update a project's email
 niftycli project remove    # remove a project
 ```
-
-You can also add a project on the fly from `niftycli` → **+ Add new project**.
-
-## Commands
-
-| Command                | Does                               |
-| ---------------------- | ---------------------------------- |
-| `niftycli`             | Setup (first run) or create a task |
-| `niftycli init`        | (Re-)run setup                     |
-| `niftycli new`         | Create a task                      |
-| `niftycli project ...` | Manage projects (see above)        |
-| `niftycli --help`      | List all commands                  |
 
 ### Finding your project's forwarding email
 
