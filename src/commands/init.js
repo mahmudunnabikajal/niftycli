@@ -63,8 +63,7 @@ export async function initCommand() {
     required: true,
   });
   const projectEmail = await input({
-    message:
-      "Project's Nifty forwarding email (Project Settings → Email Forwarding):",
+    message: "Project's Nifty forwarding email (Project Settings → Email Forwarding):",
     required: true,
   });
 
@@ -75,9 +74,5 @@ export async function initCommand() {
   };
 
   saveConfig(config);
-  console.log(
-    chalk.green(
-      `\n✔ Saved configuration. Run \`niftycli new\` to create a task.`,
-    ),
-  );
+  console.log(chalk.green(`\n✔ Saved configuration. Run \`niftycli new\` to create a task.`));
 }

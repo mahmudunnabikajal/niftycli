@@ -8,12 +8,6 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal — no br
 npm i -g niftycli
 ```
 
-First run asks for your email login (username, password, SMTP server, port) and
-your first Nifty project (name + its forwarding email, found in **Project Settings
-→ Email Forwarding**).
-
-Don't have `niftycli` installed? See [DEVELOPER.md](DEVELOPER.md).
-
 ## Create a task
 
 ```bash
@@ -43,6 +37,18 @@ You can also add a project on the fly from `niftycli` → **+ Add new project**.
 | `niftycli new`         | Create a task                      |
 | `niftycli project ...` | Manage projects (see above)        |
 | `niftycli --help`      | List all commands                  |
+
+### Finding your project's forwarding email
+
+1. Open your Nifty project, click the **`...`** menu next to the project name in
+   the sidebar, and select **Project Control Center**.
+
+   ![Opening the Project Control Center](docs/images/nifty_project_control_center.png)
+
+2. In the **Automations** section, click **Email Forwarding** and copy the
+   address shown — this is the email you'll give `niftycli` for this project.
+
+   ![Copying the project's forwarding email](docs/images/nifty_project_email.png)
 
 ## Troubleshooting
 
