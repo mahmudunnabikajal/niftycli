@@ -9,8 +9,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nifty",
+    "automation",
+    "cli",
+    "email",
+    "task",
+    "automation"
+  ],
+  "author": "mahmudunnabikajal",
   "license": "ISC",
   "type": "module",
   "dependencies": {
