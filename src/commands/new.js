@@ -1,13 +1,14 @@
 import chalk from "chalk";
 import { input, select } from "@inquirer/prompts";
-import { loadConfig, saveConfig } from "../config.js";
+import { loadConfig } from "../config.js";
 import { buildTaskEmail, sendTaskEmail } from "../mailer.js";
+import { promptNewProject } from "./project.js";
 
 const ADD_NEW_PROJECT = "__add_new_project__";
 
 async function resolveProject(config) {
   if (config.projects.length === 0) {
-    return addProject(config);
+    return promptNewProject(config);
   }
 
   const choice = await select({
@@ -20,23 +21,10 @@ async function resolveProject(config) {
   });
 
   if (choice === ADD_NEW_PROJECT) {
-    return addProject(config);
+    return promptNewProject(config);
   }
 
   return config.projects.find((p) => p.name === choice);
-}
-
-async function addProject(config) {
-  const name = await input({ message: "New project name:", required: true });
-  const email = await input({
-    message: "Project's Nifty forwarding email (Project Settings → Email to Task):",
-    required: true,
-  });
-  const project = { name, email };
-  config.projects.push(project);
-  config.defaultProject = name;
-  saveConfig(config);
-  return project;
 }
 
 export async function newCommand() {

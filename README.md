@@ -122,18 +122,38 @@ In Nifty:
 3. Look for **Email to Task** (sometimes listed under integrations).
 4. Copy the email address shown there — that's what `niftycli` needs.
 
-Each project in Nifty has its own unique address, so you'll need to add each
-project separately (either during `niftycli init` or later via `niftycli new` →
-**+ Add new project**).
+Each project in Nifty has its own unique address, so you'''ll need to add each
+project separately.
+
+## Working with multiple projects
+
+You'''re not limited to one project. There are two ways to add more:
+
+- **While creating a task**: run `niftycli new`, then choose **+ Add new project**
+  from the project list.
+- **Anytime, without creating a task**: run `niftycli project add`.
+
+Other project management commands:
+
+```bash
+niftycli project list     # see all saved projects (the default one is marked with *)
+niftycli project remove   # remove a project you no longer need
+```
+
+Every project you add is saved to your config file, so `niftycli new` will always
+show the full list to pick from.
 
 ## Commands reference
 
-| Command              | What it does                                                |
-| -------------------- | ----------------------------------------------------------- |
-| `niftycli --help`    | Show all available commands                                 |
-| `niftycli --version` | Show the installed version                                  |
-| `niftycli init`      | Set up (or overwrite) your email settings and first project |
-| `niftycli new`       | Create a new task                                           |
+| Command                   | What it does                                                 |
+| -------------------------- | ------------------------------------------------------------ |
+| `niftycli --help`         | Show all available commands                                  |
+| `niftycli --version`      | Show the installed version                                   |
+| `niftycli init`           | Set up (or overwrite) your email settings and first project  |
+| `niftycli new`            | Create a new task                                             |
+| `niftycli project add`    | Add another project                                           |
+| `niftycli project list`   | List all saved projects                                       |
+| `niftycli project remove` | Remove a saved project                                        |
 
 ## Troubleshooting
 
