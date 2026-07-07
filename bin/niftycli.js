@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { createRequire } from "node:module";
+import chalk from "chalk";
 import { Command } from "commander";
 import { initCommand } from "../src/commands/init.js";
 import { newCommand } from "../src/commands/new.js";
@@ -60,4 +61,13 @@ project
   .description("Remove a saved Nifty project")
   .action(removeProjectCommand);
 
-program.parse();
+try {
+  await program.parseAsync();
+} catch (err) {
+  if (err.name === "ExitPromptError") {
+    console.log(chalk.yellow("\nCancelled."));
+    process.exit(130);
+  }
+  console.log(chalk.red(`\nError: ${err.message}`));
+  process.exit(1);
+}
