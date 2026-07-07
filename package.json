@@ -1,5 +1,5 @@
 {
-  "name": "nifty-automation-cli",
+  "name": "niftycli",
   "version": "1.0.0",
   "description": "CLI that creates Nifty tasks by emailing them to a project's Nifty forwarding address",
   "main": "bin/niftycli.js",
