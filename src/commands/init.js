@@ -59,7 +59,7 @@ export async function initCommand() {
 
   console.log(chalk.bold("\nSet up your first Nifty project:"));
   const projectName = await input({
-    message: "Project name (e.g. Website Revamp):",
+    message: "Project name (e.g. Website):",
     required: true,
   });
   const projectEmail = await input({
