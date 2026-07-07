@@ -26,12 +26,12 @@
   },
   "homepage": "https://github.com/mahmudunnabikajal/niftycli#readme",
   "engines": {
-    "node": ">=20.17.0"
+    "node": ">=24"
   },
   "dependencies": {
     "@inquirer/prompts": "^8.5.2",
     "chalk": "^5.6.2",
-    "commander": "^12.1.0",
+    "commander": "^15.0.0",
     "nodemailer": "^9.0.3"
   },
   "devDependencies": {

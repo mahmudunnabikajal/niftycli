@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { createRequire } from "node:module";
 import chalk from "chalk";
 import { Command } from "commander";
 import { initCommand } from "../src/commands/init.js";
@@ -11,9 +10,9 @@ import {
   removeProjectCommand,
 } from "../src/commands/project.js";
 import { configExists } from "../src/config.js";
+import pkg from "../package.json" with { type: "json" };
 
-const require = createRequire(import.meta.url);
-const { version } = require("../package.json");
+const { version } = pkg;
 
 const program = new Command();
 
