@@ -9,6 +9,7 @@ import {
   editProjectCommand,
   removeProjectCommand,
 } from "../src/commands/project.js";
+import { configExists } from "../src/config.js";
 
 const require = createRequire(import.meta.url);
 const { version } = require("../package.json");
@@ -18,7 +19,14 @@ const program = new Command();
 program
   .name("niftycli")
   .description("Create Nifty tasks by emailing them to a project's Nifty forwarding address")
-  .version(version);
+  .version(version)
+  .action(async () => {
+    if (configExists()) {
+      await newCommand();
+    } else {
+      await initCommand();
+    }
+  });
 
 program
   .command("init")
