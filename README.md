@@ -10,9 +10,9 @@ using your own work email account.
 
 ## How it works
 
-1. You run `niftycli init` once to tell the CLI your email server details and your
-   first Nifty project.
-2. Every time you want to create a task, you run `niftycli new`, type a task name
+1. You run `niftycli` once to tell the CLI your email server details and your
+   first Nifty project (this happens automatically the first time you run it).
+2. Every time you want to create a task, you run `niftycli`, type a task name
    (and optionally a description), and pick which project it belongs to.
 3. `niftycli` sends an email on your behalf to that project's Nifty address, and
    Nifty turns it into a task for you.
@@ -52,13 +52,15 @@ niftycli --version
 
 ### 1. Set up the CLI
 
-Run:
+The very first time you run the CLI with no arguments:
 
 ```bash
-niftycli init
+niftycli
 ```
 
-You'll be asked a series of questions:
+it detects that you haven't configured it yet and automatically walks you through
+setup (this is the same as running `niftycli init` directly). You'll be asked a
+series of questions:
 
 | Question                          | What to enter                                                                        |
 | ---------------------------------- | -------------------------------------------------------------------------------------- |
@@ -81,10 +83,11 @@ and don't share this file with anyone.
 
 ### 2. Create a task
 
-Run:
+Once you're set up, just run `niftycli` again with no arguments (it now knows you're
+configured, so it skips straight to task creation — equivalent to `niftycli new`):
 
 ```bash
-niftycli new
+niftycli
 ```
 
 You'll be asked to:
@@ -122,12 +125,12 @@ In Nifty:
 3. Look for **Email to Task** (sometimes listed under integrations).
 4. Copy the email address shown there — that's what `niftycli` needs.
 
-Each project in Nifty has its own unique address, so you'''ll need to add each
+Each project in Nifty has its own unique address, so you'll need to add each
 project separately.
 
 ## Working with multiple projects
 
-You'''re not limited to one project. There are two ways to add more:
+You're not limited to one project. There are two ways to add more:
 
 - **While creating a task**: run `niftycli new`, then choose **+ Add new project**
   from the project list.
@@ -146,16 +149,17 @@ show the full list to pick from.
 
 ## Commands reference
 
-| Command                   | What it does                                                 |
-| -------------------------- | ------------------------------------------------------------ |
-| `niftycli --help`         | Show all available commands                                  |
-| `niftycli --version`      | Show the installed version                                   |
-| `niftycli init`           | Set up (or overwrite) your email settings and first project  |
-| `niftycli new`            | Create a new task                                             |
-| `niftycli project add`    | Add another project                                           |
-| `niftycli project list`   | List all saved projects                                       |
-| `niftycli project edit`   | Rename a project or update its forwarding email                |
-| `niftycli project remove` | Remove a saved project                                        |
+| Command                   | What it does                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------- |
+| `niftycli`                | Run setup if you haven't yet, otherwise create a new task (shortcut for `init`/`new`) |
+| `niftycli --help`         | Show all available commands                                                          |
+| `niftycli --version`      | Show the installed version                                                           |
+| `niftycli init`           | Set up (or overwrite) your email settings and first project                          |
+| `niftycli new`            | Create a new task                                                                     |
+| `niftycli project add`    | Add another project                                                                   |
+| `niftycli project list`   | List all saved projects                                                               |
+| `niftycli project edit`   | Rename a project or update its forwarding email                                      |
+| `niftycli project remove` | Remove a saved project                                                                |
 
 ## Troubleshooting
 
@@ -170,3 +174,5 @@ show the full list to pick from.
   to confirm the message actually went out.
 - **Starting over** — delete the `~/.niftycli/config.json` file and run
   `niftycli init` again.
+- **Changed your mind partway through a prompt?** — press `Ctrl+C` at any time.
+  The CLI prints `Cancelled.` and exits cleanly without saving anything.

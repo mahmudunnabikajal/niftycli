@@ -1,1 +1,18 @@
-node_modules
+# Dependencies
+node_modules/
+
+# npm
+npm-debug.log*
+.npm
+
+# Environment / local config
+.env
+.env.*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
