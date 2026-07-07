@@ -6,9 +6,6 @@
   "bin": {
     "niftycli": "./bin/niftycli.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "nifty",
     "automation",
@@ -17,9 +14,17 @@
     "task",
     "automation"
   ],
-  "author": "mahmudunnabikajal",
+  "author": "Mahmudun Nabi Kajal <mahmudunnabikajal@gmail.com> (https://mahmudunnabikajal.com/)",
   "license": "ISC",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmudunnabikajal/niftycli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahmudunnabikajal/niftycli/issues"
+  },
+  "homepage": "https://github.com/mahmudunnabikajal/niftycli#readme",
   "dependencies": {
     "@inquirer/prompts": "^8.5.2",
     "chalk": "^5.6.2",
