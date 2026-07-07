@@ -10,9 +10,12 @@ import {
   removeProjectCommand,
 } from "../src/commands/project.js";
 import { configExists } from "../src/config.js";
+import { checkForUpdate, printUpdateWarning } from "../src/updateNotifier.js";
 import pkg from "../package.json" with { type: "json" };
 
-const { version } = pkg;
+const { name, version } = pkg;
+
+const updateCheck = checkForUpdate(name, version);
 
 const program = new Command();
 
@@ -55,9 +58,18 @@ project
 
 project.command("remove").description("Remove a saved Nifty project").action(removeProjectCommand);
 
+async function warnIfUpdateAvailable() {
+  const latestVersion = await updateCheck;
+  if (latestVersion) {
+    printUpdateWarning(name, version, latestVersion);
+  }
+}
+
 try {
   await program.parseAsync();
+  await warnIfUpdateAvailable();
 } catch (err) {
+  await warnIfUpdateAvailable();
   if (err.name === "ExitPromptError") {
     console.log(chalk.yellow("\nCancelled."));
     process.exit(130);
