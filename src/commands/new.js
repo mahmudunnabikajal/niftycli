@@ -6,7 +6,16 @@ import { promptNewProject } from "./project.js";
 
 const ADD_NEW_PROJECT = "__add_new_project__";
 
-async function resolveProject(config) {
+async function resolveProject(config, projectName) {
+  if (projectName) {
+    const project = config.projects.find((p) => p.name.toLowerCase() === projectName.toLowerCase());
+    if (!project) {
+      const available = config.projects.map((p) => p.name).join(", ") || "(none)";
+      throw new Error(`No project named "${projectName}". Available projects: ${available}`);
+    }
+    return project;
+  }
+
   if (config.projects.length === 0) {
     return promptNewProject(config);
   }
@@ -27,7 +36,7 @@ async function resolveProject(config) {
   return config.projects.find((p) => p.name === choice);
 }
 
-export async function newCommand() {
+export async function newCommand(options = {}) {
   const config = loadConfig();
   if (!config) {
     console.log(chalk.red("No configuration found. Run `niftycli init` first."));
@@ -35,11 +44,19 @@ export async function newCommand() {
     return;
   }
 
-  const project = await resolveProject(config);
+  let project;
+  try {
+    project = await resolveProject(config, options.p);
+  } catch (err) {
+    console.log(chalk.red(`\n${err.message}`));
+    process.exitCode = 1;
+    return;
+  }
 
-  const taskName = await input({ message: "Task name:", required: true });
-  const description = await input({ message: "Task description (optional):" });
-  const status = await input({ message: "Status (optional):", default: "To Do" });
+  const taskName = options.n || (await input({ message: "Task name:", required: true }));
+  const description =
+    options.d !== undefined ? options.d : await input({ message: "Task description (optional):" });
+  const status = options.s || (await input({ message: "Status (optional):", default: "To Do" }));
 
   const { subject, text } = buildTaskEmail({ taskName, description, status });
 

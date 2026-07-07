@@ -33,7 +33,14 @@ program
   .description("Set up SMTP credentials and your first Nifty project")
   .action(initCommand);
 
-program.command("new").description("Create a new Nifty task").action(newCommand);
+program
+  .command("new")
+  .description("Create a new Nifty task")
+  .option("-n <name>", "Task name")
+  .option("-d <description>", "Task description")
+  .option("-s <status>", "Task status", "To Do")
+  .option("-p <project>", "Project name")
+  .action(newCommand);
 
 const project = program.command("project").description("Manage saved Nifty projects");
 

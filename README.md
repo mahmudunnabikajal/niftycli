@@ -18,6 +18,23 @@ npm i -g niftycli
 | `niftycli project ...` | Manage projects (see below)        |
 | `niftycli --help`      | List all commands                  |
 
+### Creating a task non-interactively
+
+Pass any of these flags to `niftycli new` to skip the matching prompt:
+
+| Flag           | Does                                      | If omitted                        |
+| -------------- | ----------------------------------------- | --------------------------------- |
+| `-n <name>`    | Task name                                 | prompts for it                    |
+| `-d <text>`    | Task description                          | prompts for it (blank if skipped) |
+| `-s <status>`  | Task status                               | defaults to `To Do`, no prompt    |
+| `-p <project>` | Project name (must match a saved project) | prompts to select one             |
+
+```bash
+niftycli new -p "Website" -n "Fix login bug"
+```
+
+Any flag left out falls back to an interactive prompt (status defaults to `To Do` if not set).
+
 ## Manage projects
 
 ```bash
