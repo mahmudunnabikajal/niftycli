@@ -2,6 +2,11 @@
 
 Create [Nifty](https://niftypm.com) tasks by email, from your terminal - no browser needed.
 
+[![mahmudunnabikajal - niftycli](https://img.shields.io/static/v1?label=mahmudunnabikajal&message=niftycli&color=blue&logo=github)](https://github.com/mahmudunnabikajal/niftycli "Go to GitHub repo")
+[![Latest Stable Version](https://img.shields.io/npm/v/niftycli.svg)](https://www.npmjs.com/package/niftycli)
+[![NPM Downloads](https://img.shields.io/npm/dt/niftycli.svg)](https://www.npmjs.com/package/niftycli)
+[![License](https://img.shields.io/badge/License-ISC-blue)](#license)
+
 ## Setup
 
 ```bash
