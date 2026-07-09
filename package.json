@@ -29,6 +29,7 @@
     "node": ">=24"
   },
   "scripts": {
+    "test": "node --test",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
