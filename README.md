@@ -6,6 +6,10 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal - no brow
 [![Latest Stable Version](https://img.shields.io/npm/v/niftycli.svg)](https://www.npmjs.com/package/niftycli)
 [![NPM Downloads](https://img.shields.io/npm/dt/niftycli.svg)](https://www.npmjs.com/package/niftycli)
 [![License](https://img.shields.io/badge/License-ISC-blue)](#license)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 
 ## Setup
 
