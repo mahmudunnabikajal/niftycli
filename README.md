@@ -11,7 +11,17 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal - no brow
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 
-<!-- ![niftycli init and task creation demo](public/assets/images/demo-init.gif) -->
+Full docs, FAQ, and troubleshooting: **[niftycli.mahmudunnabikajal.com](https://niftycli.mahmudunnabikajal.com)**
+
+![niftycli new task creation demo](https://niftycli.mahmudunnabikajal.com/img/demo-new.gif)
+
+## Why a Nifty CLI?
+
+Nifty doesn't have an official command-line tool, but every Nifty project can accept new tasks
+by email through its **project forwarding address**. niftycli wraps that mechanism in a small
+CLI: instead of opening Nifty, finding the right project, and filling out a task form, you run
+one command and the task shows up in Nifty a moment later. It needs no Nifty API key — your own
+SMTP account sends the email, and Nifty's existing email-forwarding automation does the rest.
 
 ## Setup
 
@@ -60,12 +70,12 @@ niftycli project remove    # remove a project
 1. Open your Nifty project, click the **`...`** menu next to the project name in
    the sidebar, and select **Project Control Center**.
 
-   ![Opening the Project Control Center](https://downloads.intercomcdn.com/i/o/830642303/1b277eeae6f1ba4794ef428f/Screen+Shot+2023-09-14+at+10.15.41+AM.png)
+   ![Opening the Project Control Center](https://niftycli.mahmudunnabikajal.com/img/nifty_project_control_center.png)
 
 2. In the **Automations** section, click **Email Forwarding** and copy the
    address shown - this is the email you'll give `niftycli` for this project.
 
-   ![Copying the project's forwarding email](https://downloads.intercomcdn.com/i/o/827623574/0f986f450854c74966f3db92/Screen+Shot+2023-09-11+at+9.16.19+AM.png)
+   ![Copying the project's forwarding email](https://niftycli.mahmudunnabikajal.com/img/nifty_project_email.png)
 
 ## Troubleshooting
 
@@ -73,3 +83,9 @@ niftycli project remove    # remove a project
   Microsoft 365 usually need an "app password", not your normal login.
 - **Task never arrives in Nifty** - check the project's forwarding email is correct. Duplicate tasks will be ignored by Nifty.
 - **Ctrl+C** cancels any prompt cleanly.
+
+More fixes: [Troubleshooting guide](https://niftycli.mahmudunnabikajal.com/docs/troubleshooting) · [FAQ](https://niftycli.mahmudunnabikajal.com/docs/faq)
+
+## License
+
+[ISC](./LICENSE) © [Mahmudun Nabi Kajal](https://mahmudunnabikajal.com/)

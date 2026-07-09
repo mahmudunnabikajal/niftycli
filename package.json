@@ -8,10 +8,13 @@
   },
   "keywords": [
     "nifty",
-    "automation",
+    "niftypm",
     "cli",
     "email",
     "task",
+    "task-management",
+    "smtp",
+    "terminal",
     "automation"
   ],
   "author": "Mahmudun Nabi Kajal <mahmudunnabikajal@gmail.com> (https://mahmudunnabikajal.com/)",
@@ -24,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/mahmudunnabikajal/niftycli/issues"
   },
-  "homepage": "https://github.com/mahmudunnabikajal/niftycli#readme",
+  "homepage": "https://niftycli.mahmudunnabikajal.com",
   "engines": {
     "node": ">=24"
   },
