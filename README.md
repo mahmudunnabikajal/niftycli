@@ -11,6 +11,8 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal - no brow
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 
+![niftycli init and task creation demo](public/assets/images/demo-init.gif)
+
 ## Setup
 
 ```bash
