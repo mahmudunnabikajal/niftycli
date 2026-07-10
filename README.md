@@ -6,6 +6,7 @@ Create [Nifty](https://niftypm.com) tasks by email, from your terminal - no brow
 [![Latest Stable Version](https://img.shields.io/npm/v/niftycli.svg)](https://www.npmjs.com/package/niftycli)
 [![NPM Downloads](https://img.shields.io/npm/dt/niftycli.svg)](https://www.npmjs.com/package/niftycli)
 [![License](https://img.shields.io/badge/License-ISC-blue)](#license)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mahmudunnabikajal_niftycli&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=mahmudunnabikajal_niftycli)
@@ -70,12 +71,12 @@ niftycli project remove    # remove a project
 1. Open your Nifty project, click the **`...`** menu next to the project name in
    the sidebar, and select **Project Control Center**.
 
-   ![Opening the Project Control Center](https://niftycli.mahmudunnabikajal.com/img/nifty_project_control_center.png)
+   ![Opening the Project Control Center](./public/images/nifty_project_control_center.png)
 
 2. In the **Automations** section, click **Email Forwarding** and copy the
    address shown - this is the email you'll give `niftycli` for this project.
 
-   ![Copying the project's forwarding email](https://niftycli.mahmudunnabikajal.com/img/nifty_project_email.png)
+   ![Copying the project's forwarding email](./public/images/nifty_project_email.png)
 
 ## Troubleshooting
 
