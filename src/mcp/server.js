@@ -32,6 +32,22 @@ export function createServer() {
   const server = new McpServer({ name: "niftycli", version: pkg.version });
 
   server.registerTool(
+    "niftycli_hello",
+    {
+      title: "niftycli hello",
+      description: "Connectivity check - confirms the niftycli MCP server is reachable.",
+      inputSchema: {
+        name: z.string().optional().describe("Optional name to include in the greeting"),
+      },
+    },
+    async ({ name }) => {
+      return textResult(
+        `Hello${name ? `, ${name}` : ""}! niftycli-mcp v${pkg.version} is connected and working.`,
+      );
+    },
+  );
+
+  server.registerTool(
     "niftycli_status",
     {
       title: "niftycli status",
