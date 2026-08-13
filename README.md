@@ -86,11 +86,14 @@ stdio and reuses your existing `niftycli init` configuration - it doesn't handle
 itself.
 
 ```bash
-claude mcp add niftycli -- npx niftycli-mcp
+npm i -g niftycli
+claude mcp add niftycli -- niftycli-mcp
 ```
 
-For Claude Desktop or other MCP clients, point the client at `npx niftycli-mcp` (stdio
-transport). Full docs: [MCP Server guide](https://niftycli.mahmudunnabikajal.com/docs/mcp-server).
+Without a global install, use `npx -y -p niftycli niftycli-mcp` instead (`niftycli-mcp` is a
+bin inside the `niftycli` package, not its own package - `npx niftycli-mcp` alone will 404,
+and `npx niftycli niftycli-mcp` without `-p` runs the wrong bin). Full docs:
+[MCP Server guide](https://niftycli.mahmudunnabikajal.com/docs/mcp-server).
 
 ## Troubleshooting
 
