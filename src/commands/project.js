@@ -48,7 +48,9 @@ export async function listProjectsCommand() {
   console.log(chalk.bold("\nProjects:"));
   for (const p of config.projects) {
     const isDefault = p.name === config.defaultProject;
-    console.log(`  ${isDefault ? chalk.cyan("*") : " "} ${p.name} ${chalk.gray(`<${p.email}>`)}`);
+    const marker = isDefault ? chalk.cyan("*") : " ";
+    const email = chalk.gray(`<${p.email}>`);
+    console.log(`  ${marker} ${p.name} ${email}`);
   }
 }
 
