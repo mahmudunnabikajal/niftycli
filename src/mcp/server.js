@@ -127,7 +127,7 @@ export function createServer() {
         "Save a new Nifty project name and its email-forwarding address, and make it the default.",
       inputSchema: {
         name: z.string().min(1).describe("Project name, e.g. 'Website Revamp'"),
-        email: z.string().email().describe("Project's Nifty forwarding email"),
+        email: z.email().describe("Project's Nifty forwarding email"),
       },
     },
     async ({ name, email }) => {
@@ -150,11 +150,7 @@ export function createServer() {
       inputSchema: {
         currentName: z.string().min(1).describe("Existing project name to edit"),
         newName: z.string().min(1).optional().describe("New project name (omit to keep current)"),
-        newEmail: z
-          .string()
-          .email()
-          .optional()
-          .describe("New forwarding email (omit to keep current)"),
+        newEmail: z.email().optional().describe("New forwarding email (omit to keep current)"),
       },
     },
     async ({ currentName, newName, newEmail }) => {
