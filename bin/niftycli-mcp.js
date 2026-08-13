@@ -2,7 +2,7 @@
 import { startServer } from "../src/mcp/server.js";
 
 function sanitizeForLog(text) {
-  return String(text).replace(/[\r\n\t\x00-\x1f]+/g, " ");
+  return String(text).replace(/[\x00-\x1f]+/g, " ");
 }
 
 try {
