@@ -1,9 +1,14 @@
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { loadConfig, saveConfig, configExists, getConfigPath } from "../config.js";
 import { buildTaskEmail, sendTaskEmail } from "../mailer.js";
+import { checkForUpdate } from "../updateNotifier.js";
 import pkg from "../../package.json" with { type: "json" };
+
+const execFileAsync = promisify(execFile);
 
 function requireConfig() {
   const config = loadConfig();
@@ -44,6 +49,31 @@ export function createServer() {
       return textResult(
         `Hello${name ? `, ${name}` : ""}! niftycli-mcp v${pkg.version} is connected and working.`,
       );
+    },
+  );
+
+  server.registerTool(
+    "niftycli_update",
+    {
+      title: "Update niftycli",
+      description:
+        "Check the installed niftycli version against the latest on npm, and if it's outdated, run `npm install -g niftycli` to update it.",
+      inputSchema: {},
+    },
+    async () => {
+      const latestVersion = await checkForUpdate(pkg.name, pkg.version);
+      if (!latestVersion) {
+        return textResult(`niftycli is already up to date (v${pkg.version}).`);
+      }
+      try {
+        await execFileAsync("npm", ["install", "-g", pkg.name]);
+        return textResult(`Updated niftycli: v${pkg.version} -> v${latestVersion}.`);
+      } catch (err) {
+        throw new Error(
+          `Found a newer version (v${latestVersion}) but the update failed: ${err.message}`,
+          { cause: err },
+        );
+      }
     },
   );
 

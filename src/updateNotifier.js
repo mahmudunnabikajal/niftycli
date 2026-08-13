@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-function isNewer(latest, current) {
+export function isNewer(latest, current) {
   const [lMajor, lMinor, lPatch] = latest.split(".").map(Number);
   const [cMajor, cMinor, cPatch] = current.split(".").map(Number);
 
