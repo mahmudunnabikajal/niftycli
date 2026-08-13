@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 import { startServer } from "../src/mcp/server.js";
-
-function sanitizeForLog(text) {
-  return Array.from(String(text), (ch) => (ch.charCodeAt(0) < 0x20 ? " " : ch)).join("");
-}
+import { sanitizeForLog } from "../src/logSanitizer.js";
 
 try {
   await startServer();
