@@ -27,7 +27,7 @@ SMTP account sends the email, and Nifty's existing email-forwarding automation d
 ## Setup
 
 ```bash
-npm i -g niftycli
+npm i -g niftycli@latest
 ```
 
 ## Commands
@@ -86,7 +86,7 @@ stdio and reuses your existing `niftycli init` configuration - it doesn't handle
 itself.
 
 ```bash
-npm i -g niftycli
+npm i -g niftycli@latest
 claude mcp add niftycli -- niftycli-mcp
 ```
 
