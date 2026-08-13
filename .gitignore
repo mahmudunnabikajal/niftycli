@@ -16,3 +16,6 @@ npm-debug.log*
 
 # Logs
 *.log
+
+# Coverage
+lcov.info
