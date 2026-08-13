@@ -4,12 +4,16 @@
   "description": "CLI that creates Nifty tasks by emailing them to a project's Nifty forwarding address",
   "main": "bin/niftycli.js",
   "bin": {
-    "niftycli": "./bin/niftycli.js"
+    "niftycli": "./bin/niftycli.js",
+    "niftycli-mcp": "./bin/niftycli-mcp.js"
   },
   "keywords": [
     "nifty",
     "niftypm",
+    "niftycli",
+    "niftycli-mcp",
     "cli",
+    "mcp",
     "email",
     "task",
     "task-management",
@@ -40,9 +44,11 @@
   },
   "dependencies": {
     "@inquirer/prompts": "^8.5.2",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "chalk": "^5.6.2",
     "commander": "^15.0.0",
-    "nodemailer": "^9.0.3"
+    "nodemailer": "^9.0.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -78,6 +78,20 @@ niftycli project remove    # remove a project
 
    ![Copying the project's forwarding email](./public/images/nifty_project_email.png)
 
+## MCP server
+
+niftycli ships an [MCP](https://modelcontextprotocol.io) server, `niftycli-mcp`, so AI
+assistants like Claude can create tasks and manage projects directly. It runs locally over
+stdio and reuses your existing `niftycli init` configuration - it doesn't handle SMTP setup
+itself.
+
+```bash
+claude mcp add niftycli -- npx niftycli-mcp
+```
+
+For Claude Desktop or other MCP clients, point the client at `npx niftycli-mcp` (stdio
+transport). Full docs: [MCP Server guide](https://niftycli.mahmudunnabikajal.com/docs/mcp-server).
+
 ## Troubleshooting
 
 - **SMTP connection fails** - double-check host/port/username/password. Gmail and
