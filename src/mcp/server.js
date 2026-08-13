@@ -46,9 +46,8 @@ export function createServer() {
       },
     },
     async ({ name }) => {
-      return textResult(
-        `Hello${name ? `, ${name}` : ""}! niftycli-mcp v${pkg.version} is connected and working.`,
-      );
+      const greeting = name ? `Hello, ${name}!` : "Hello!";
+      return textResult(`${greeting} niftycli-mcp v${pkg.version} is connected and working.`);
     },
   );
 
